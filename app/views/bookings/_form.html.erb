@@ -1,48 +1,49 @@
- <% if booking.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(booking.errors.count, "error") %> prohibited this booking from being saved:</h2>
+<% if booking.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(booking.errors.count, "error") %> prohibited this booking from being saved:</h2>
 
-      <ul>
-        <% booking.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+    <ul>
+      <% booking.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 
 <%= form_with(model: booking) do |f| %>
   <div>
-    <%= f.label :first_name %><br>
-    <%= f.text_field :first_name %>
-  </div>
+    <div class='form-item'>
+      <%= f.label :first_name %><br>
+      <%= f.text_field :first_name %>
+    </div>
 
-  <div>
-    <%= f.label :last_name %><br>
-    <%= f.text_field :last_name %>
-  </div>
+    <div class='form-item'>
+      <%= f.label :last_name %><br>
+      <%= f.text_field :last_name %>
+    </div>
 
-  <div>
-    <%= f.label :animal_name %><br>
-    <%= f.text_field :animal_name %>
-  </div>
+    <div class='form-item'>
+      <%= f.label :animal_name %><br>
+      <%= f.text_field :animal_name %>
+    </div>
 
-  <div>
-    <%= f.label :animal_type %><br>
-    <%= f.select :animal_type, %i[Dog Cat] %>
-  </div>
+    <div class='form-item'>
+      <%= f.label :animal_type %><br>
+      <%= f.select :animal_type, %i[Dog Cat] %>
+    </div>
 
-  <div>
-    <%= f.label :hours_requested %><br>
-    <%= f.select :hours_requested, (2..8).to_a %>
-  </div>
+    <div class='form-item'>
+      <%= f.label :hours_requested %><br>
+      <%= f.select :hours_requested, (2..8).to_a %>
+    </div>
 
-  <div>
-    <%= f.label :date_of_service %><br>
-    <%= f.date_field :date_of_service, min: Date.today %>
-  </div>
-  <br>
+    <div class='form-item'>
+      <%= f.label :date_of_service %><br>
+      <%= f.date_field :date_of_service, min: Date.today %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit %>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
   </div>
 <% end %>
