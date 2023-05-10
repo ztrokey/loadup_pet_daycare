@@ -1,0 +1,15 @@
+<h1>All Bookings</h1>
+
+<% @bookings.each do |booking| %>
+    <div>
+      <ul>
+        <li><%= "Booking ID: #{booking.id}" %></li>
+        <li><%= "Client Name: #{booking.first_name} #{booking.last_name}" %></li>
+        <li><%= "Pet Name: #{booking.animal_name}" %></li>
+        <li><%= "Animal Type: #{booking.animal_type}" %></li>
+        <li><%= "Hours Requested: #{booking.hours_requested}" %></li>
+        <li><%= "Date Requested: #{booking.date_of_service}" %></li>
+        <li><%= "Total Price: $#{sprintf("%.2f", booking.total_price)}" %></li>
+      </ul>
+    </div>
+<% end %>
